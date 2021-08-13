@@ -3,7 +3,7 @@ package com.durandsuppicich.danmsdelivery.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "geolocation", schema = "ms-delivery")
+@Table(name = "geolocation", schema = "ms_delivery")
 public class Geolocation {
 
     @Id
@@ -16,6 +16,9 @@ public class Geolocation {
 
     @Column(nullable = false)
     private Double longitude;
+
+    public Geolocation() {
+    }
 
     public Geolocation(Double latitude, Double longitude) {
         this.latitude = latitude;

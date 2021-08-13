@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "rel_packages_orders", schema = "ms-delivery")
+@Table(name = "rel_packages_orders", schema = "ms_delivery")
 public class PackageOrders {
 
     @Id

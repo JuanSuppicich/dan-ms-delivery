@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "delivery", schema = "ms-delivery")
+@Table(name = "delivery", schema = "ms_delivery")
 public class Delivery {
 
     @Id
@@ -38,7 +38,7 @@ public class Delivery {
     private List<Package> packages = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "geolocation_id", referencedColumnName = "geolocation_id")
+    @JoinColumn(name = "delivery_id", referencedColumnName = "delivery_id")
     private List<Geolocation> route = new ArrayList<>();
 
     public Delivery() {

@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.3</version>
+		<version>2.4.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -16,6 +16,7 @@
 	<description>Lab DAN API Delivery</description>
 	<properties>
 		<java.version>11</java.version>
+		<spring.cloud-version>2020.0.3</spring.cloud-version>
 	</properties>
 
 	<dependencies>
@@ -52,11 +53,11 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- SPRING ACTUATOR -->
+		<!-- SPRING ACTUATOR
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
+		</dependency>-->
 
 		<!-- H2 -->
 		<dependency>
@@ -64,12 +65,12 @@
 			<artifactId>h2</artifactId>
 		</dependency>
 
-		<!-- PROMETHEUS -->
+		<!-- PROMETHEUS
 		<dependency>
 			<groupId>io.micrometer</groupId>
 			<artifactId>micrometer-registry-prometheus</artifactId>
 			<version>${micrometer.version}</version>
-		</dependency>
+		</dependency>-->
 
 		<!-- SWAGGER-UI -->
 		<dependency>
@@ -99,38 +100,38 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- EUREKA CLIENT -->
+		<!-- EUREKA CLIENT
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
+		</dependency>-->
 
-		<!-- FEIGN -->
+		<!-- FEIGN
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 			<version>3.0.3</version>
-		</dependency>
+		</dependency>-->
 
-		<!-- RESILIENCE4J CIRCUIT-BREAKER -->
+		<!-- RESILIENCE4J CIRCUIT-BREAKER
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 			<version>1.0.6.RELEASE</version>
-		</dependency>
+		</dependency>-->
 
-		<!-- SPRING-BOOT CACHE -->
+		<!-- SPRING-BOOT CACHE
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-cache</artifactId>
-		</dependency>
+		</dependency>-->
 
-		<!-- CAFFEINE CACHE -->
+		<!-- CAFFEINE CACHE
 		<dependency>
 			<groupId>com.github.ben-manes.caffeine</groupId>
 			<artifactId>caffeine</artifactId>
 			<version>3.0.3</version>
-		</dependency>
+		</dependency>-->
 
 	</dependencies>
 
