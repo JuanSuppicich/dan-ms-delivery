@@ -7,7 +7,7 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 
 @Entity
-@Table(name = "truck", schema = "ms_delivery")
+@Table(name = "package", schema = "ms_delivery")
 public class Package {
 
     @Id

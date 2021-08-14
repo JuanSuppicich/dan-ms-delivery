@@ -49,4 +49,28 @@ public class TruckResponseDto {
     public void setState(TruckState state) {
         this.state = state;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getLicense() {
+        return license;
+    }
+
+    public Double getTare() {
+        return tare;
+    }
+
+    public Double getMaxWeight() {
+        return maxWeight;
+    }
+
+    public Double getVolume() {
+        return volume;
+    }
+
+    public TruckState getState() {
+        return state;
+    }
 }

@@ -31,4 +31,24 @@ public class TruckRequestDto {
     public Double getMaxVolume() {
         return maxVolume;
     }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setLicense(String license) {
+        this.license = license;
+    }
+
+    public void setTare(Double tare) {
+        this.tare = tare;
+    }
+
+    public void setMaxWeight(Double maxWeight) {
+        this.maxWeight = maxWeight;
+    }
+
+    public void setMaxVolume(Double maxVolume) {
+        this.maxVolume = maxVolume;
+    }
 }
