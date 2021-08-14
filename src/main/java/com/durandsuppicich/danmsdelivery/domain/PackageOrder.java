@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "rel_packages_orders", schema = "ms_delivery")
-public class PackageOrders {
+public class PackageOrder {
 
     @Id
     @Column(name = "order_id")
@@ -16,4 +16,19 @@ public class PackageOrders {
     @Column(name = "package_id")
     private Integer packageId;
 
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
+
+    public Integer getPackageId() {
+        return packageId;
+    }
+
+    public void setPackageId(Integer packageId) {
+        this.packageId = packageId;
+    }
 }

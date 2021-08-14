@@ -45,6 +45,10 @@ public class Truck {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -92,5 +96,12 @@ public class Truck {
     public void setDeleteDate() {
         this.deleteDate = Instant.now().truncatedTo(ChronoUnit.SECONDS);
     }
-    
+
+    public TruckState getTruckState() {
+        return truckState;
+    }
+
+    public void setTruckState(TruckState truckState) {
+        this.truckState = truckState;
+    }
 }
