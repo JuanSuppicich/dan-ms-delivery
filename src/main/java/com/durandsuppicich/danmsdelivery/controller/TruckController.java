@@ -8,13 +8,17 @@ import com.durandsuppicich.danmsdelivery.service.ITruckService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Positive;
 import java.net.URI;
 import java.util.List;
 
 @RestController
+@Validated
 @RequestMapping("api/trucks")
 @Api(value = "TruckController")
 public class TruckController {
@@ -31,7 +35,7 @@ public class TruckController {
 
     @PostMapping
     @ApiOperation(value = "Creates a new truck")
-    public ResponseEntity<TruckResponseDto> post(@RequestBody TruckRequestDto truckDto) {
+    public ResponseEntity<TruckResponseDto> post(@RequestBody @Valid TruckRequestDto truckDto) {
 
         Truck truck = truckMapper.map(truckDto);
         Truck result = truckService.post(truck);
@@ -67,8 +71,8 @@ public class TruckController {
     }
 
     @DeleteMapping(path = "/{id}")
-    @ApiOperation(value = "Delete a truck base on the given id")
-    public ResponseEntity<?> delete(@PathVariable Integer id) {
+    @ApiOperation(value = "Delete a truck based on the given id")
+    public ResponseEntity<?> delete(@PathVariable @Positive Integer id) {
 
         truckService.delete(id);
         return ResponseEntity.noContent().build();

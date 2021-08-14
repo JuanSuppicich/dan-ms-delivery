@@ -7,14 +7,20 @@ import com.durandsuppicich.danmsdelivery.mapper.IDeliveryMapper;
 import com.durandsuppicich.danmsdelivery.service.IDeliveryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Mod11Check;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import java.net.URI;
 import java.util.List;
 
 @RestController
+@Validated
 @RequestMapping(value = "/api/deliveries")
 @Api(value = "DeliveryController")
 public class DeliveryController {
@@ -31,7 +37,7 @@ public class DeliveryController {
 
     @PostMapping
     @ApiOperation(value = "Creates a new delivery")
-    public ResponseEntity<DeliveryResponseDto> post(@RequestBody DeliveryRequestDto deliveryDto) {
+    public ResponseEntity<DeliveryResponseDto> post(@Valid @RequestBody DeliveryRequestDto deliveryDto) {
 
         Delivery delivery = deliveryMapper.map(deliveryDto);
         Delivery result = deliveryService.post(delivery);
@@ -58,7 +64,10 @@ public class DeliveryController {
 
     @GetMapping(params = "cuit")
     @ApiOperation(value = "Retrieves all deliveries based on the given customer cuit")
-    public ResponseEntity<List<DeliveryResponseDto>> getByCustomerCuit(@RequestParam String cuit) {
+    public ResponseEntity<List<DeliveryResponseDto>> getByCustomerCuit(@RequestParam(name = "cuit")
+                                                                           @NotBlank
+                                                                           @Length(min = 11, max = 11)
+                                                                           @Mod11Check(threshold = 7) String cuit) {
 
         List<Delivery> deliveries = deliveryService.getByCustomerCuit(cuit);
         List<DeliveryResponseDto> body = deliveryMapper.mapToDto(deliveries);
