@@ -1,0 +1,16 @@
+package com.durandsuppicich.danmsdelivery.service;
+
+import com.durandsuppicich.danmsdelivery.domain.Package;
+import java.util.List;
+
+public interface IPackageService {
+
+    Package post(Package p);
+
+    List<Package> getAll();
+
+    List<Package> getByCustomerCuit(String cuit);
+
+    void delete(Integer id);
+
+}

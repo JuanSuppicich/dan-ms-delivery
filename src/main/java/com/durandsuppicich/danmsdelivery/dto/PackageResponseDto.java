@@ -23,6 +23,10 @@ public class PackageResponseDto {
         this.id = id;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
     public void setCustomerCuit(String customerCuit) {
         this.customerCuit = customerCuit;
     }

@@ -20,6 +20,10 @@ public class DeliveryResponseDto {
         this.id = id;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
     public void setDeparture(Instant departure) {
         this.departure = departure;
     }
