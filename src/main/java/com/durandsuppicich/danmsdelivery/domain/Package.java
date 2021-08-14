@@ -86,7 +86,7 @@ public class Package {
     }
 
     public Instant getDeleteDate() {
-        return deleteDate;
+        return deleteDate.truncatedTo(ChronoUnit.SECONDS);
     }
 
     public void setDeleteDate() {

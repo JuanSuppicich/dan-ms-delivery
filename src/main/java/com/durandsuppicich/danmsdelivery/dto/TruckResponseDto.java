@@ -18,12 +18,12 @@ public class TruckResponseDto {
 
     private TruckState state;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setDescription(String description) {
@@ -50,27 +50,4 @@ public class TruckResponseDto {
         this.state = state;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public String getLicense() {
-        return license;
-    }
-
-    public Double getTare() {
-        return tare;
-    }
-
-    public Double getMaxWeight() {
-        return maxWeight;
-    }
-
-    public Double getVolume() {
-        return volume;
-    }
-
-    public TruckState getState() {
-        return state;
-    }
 }

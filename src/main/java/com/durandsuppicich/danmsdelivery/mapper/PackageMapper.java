@@ -44,6 +44,7 @@ public class PackageMapper implements IPackageMapper {
         packageDto.setCustomerCuit(p.getCustomerCuit());
         packageDto.setWeight(p.getWeight());
         packageDto.setVolume(p.getVolume());
+        packageDto.setArrivalDate(p.getArrivalDate());
         packageDto.setState(p.getPackageState());
 
         return packageDto;

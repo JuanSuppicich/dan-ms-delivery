@@ -19,12 +19,12 @@ public class PackageResponseDto {
 
     private PackageState state;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setCustomerCuit(String customerCuit) {

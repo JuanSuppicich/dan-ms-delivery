@@ -1,6 +1,7 @@
 package com.durandsuppicich.danmsdelivery.dto;
 
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 
 public class DeliveryResponseDto {
 
@@ -16,16 +17,16 @@ public class DeliveryResponseDto {
 
     private String employeeName;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public Integer getId() {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public void setDeparture(Instant departure) {
-        this.departure = departure;
+        this.departure = departure.truncatedTo(ChronoUnit.MINUTES);
     }
 
     public void setWeight(Double weight) {
