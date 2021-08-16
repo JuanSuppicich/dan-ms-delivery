@@ -72,22 +72,20 @@ public class DeliveryService implements IDeliveryService {
 
         truck.setState(TruckState.EN_VIAJE);
 
-        List<Integer> ordersIds = new ArrayList<>();
+        List<Integer> orderIds = new ArrayList<>();
 
         for(Package p : delivery.getPackages()) {
 
             p.setState(PackageState.EN_CAMINO);
             p.setArrivalDate();
 
-            ordersIds.addAll(packageOrderRepository.getOrderIds(p.getId()));
+            orderIds.addAll(packageOrderRepository.getOrderIds(p.getId()));
         }
 
+        updateOrdersState(orderIds);
+
         truckRepository.save(truck);
-        deliveryRepository.save(delivery);
-
-        updateOrdersState(ordersIds);
-
-        return null;
+        return deliveryRepository.save(delivery);
     }
 
     @Override
@@ -119,9 +117,9 @@ public class DeliveryService implements IDeliveryService {
         return null;
     }
 
-    private void updateOrdersState(List<Integer> ordersIds) {
+    private void updateOrdersState(List<Integer> orderIds) {
 
-        for (Integer orderId : ordersIds) {
+        for (Integer orderId : orderIds) {
 
             OrderPatchDto orderPatchDto = new OrderPatchDto(orderId, 7); // 7 = En preparacion
             orderClient.patch(orderPatchDto, orderId);

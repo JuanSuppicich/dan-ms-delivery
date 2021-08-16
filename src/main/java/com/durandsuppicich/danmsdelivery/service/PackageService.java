@@ -48,9 +48,9 @@ public class PackageService implements IPackageService {
     }
 
     @Override
-    public Package post(Package p, List<Integer> ordersIds) {
+    public Package post(Package p, List<Integer> orderIds) {
 
-        List<OrderItemDto> orderItems = getOrderItems(ordersIds);
+        List<OrderItemDto> orderItems = getOrderItems(orderIds);
 
         List<Integer> productIds = new ArrayList<>();
 
@@ -68,16 +68,16 @@ public class PackageService implements IPackageService {
 
         Package result = packageRepository.save(p);
 
-        savePackageOrderRelationships(result.getId(), ordersIds);
+        savePackageOrderRelationships(result.getId(), orderIds);
 
         return result;
     }
 
-    private void savePackageOrderRelationships(Integer packageId, List<Integer> ordersIds) {
+    private void savePackageOrderRelationships(Integer packageId, List<Integer> orderIds) {
 
         List<PackageOrder> relationships = new ArrayList<>();
 
-        for(Integer orderId : ordersIds) {
+        for(Integer orderId : orderIds) {
             PackageOrder relationship = new PackageOrder(orderId, packageId);
             relationships.add(relationship);
         }

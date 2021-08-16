@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface IPackageService {
 
-    Package post(Package p, List<Integer> ordersIds);
+    Package post(Package p, List<Integer> orderIds);
 
     List<Package> getAll();
 
