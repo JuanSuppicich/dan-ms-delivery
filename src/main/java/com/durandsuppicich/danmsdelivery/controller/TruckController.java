@@ -70,6 +70,14 @@ public class TruckController {
         return ResponseEntity.ok(body);
     }
 
+    @PatchMapping(path = "/{id}")
+    @ApiOperation(value = "Sets a truck in 'en_mantenimiento' state based on the given id")
+    public ResponseEntity<?> patch(@PathVariable @Positive Integer id) {
+
+        truckService.patch(id);
+        return ResponseEntity.noContent().build();
+    }
+
     @DeleteMapping(path = "/{id}")
     @ApiOperation(value = "Delete a truck based on the given id")
     public ResponseEntity<?> delete(@PathVariable @Positive Integer id) {

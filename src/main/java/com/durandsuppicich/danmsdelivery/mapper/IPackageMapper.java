@@ -11,8 +11,6 @@ public interface IPackageMapper {
 
     Package map(PackageRequestDto packageDto);
 
-    List<PackageOrder> mapPackageOrders(PackageRequestDto packageDto);
-
     PackageResponseDto mapToDto(Package p);
 
     List<PackageResponseDto> mapToDto(List<Package> packages);

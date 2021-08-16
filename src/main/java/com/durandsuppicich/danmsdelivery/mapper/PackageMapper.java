@@ -20,21 +20,6 @@ public class PackageMapper implements IPackageMapper {
         return p;
     }
 
-    @Override // TODO capaz no lo uso.
-    public List<PackageOrder> mapPackageOrders(PackageRequestDto packageDto) {
-
-        List<PackageOrder> packageOrders = new ArrayList<>();
-
-        for(Integer id: packageDto.getOrdersIds()) {
-
-            PackageOrder packageOrder = new PackageOrder();
-
-            packageOrder.setOrderId(id);
-            packageOrders.add(packageOrder);
-        }
-        return packageOrders;
-    }
-
     @Override
     public PackageResponseDto mapToDto(Package p) {
 
@@ -45,7 +30,7 @@ public class PackageMapper implements IPackageMapper {
         packageDto.setWeight(p.getWeight());
         packageDto.setVolume(p.getVolume());
         packageDto.setArrivalDate(p.getArrivalDate());
-        packageDto.setState(p.getPackageState());
+        packageDto.setState(p.getState());
 
         return packageDto;
     }

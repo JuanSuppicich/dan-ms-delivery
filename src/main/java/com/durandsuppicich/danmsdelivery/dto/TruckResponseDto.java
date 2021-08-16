@@ -14,7 +14,7 @@ public class TruckResponseDto {
 
     private Double maxWeight;
 
-    private Double volume;
+    private Double maxVolume;
 
     private TruckState state;
 
@@ -26,24 +26,48 @@ public class TruckResponseDto {
         this.id = id;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getLicense() {
+        return license;
     }
 
     public void setLicense(String license) {
         this.license = license;
     }
 
+    public Double getTare() {
+        return tare;
+    }
+
     public void setTare(Double tare) {
         this.tare = tare;
+    }
+
+    public Double getMaxWeight() {
+        return maxWeight;
     }
 
     public void setMaxWeight(Double maxWeight) {
         this.maxWeight = maxWeight;
     }
 
-    public void setVolume(Double volume) {
-        this.volume = volume;
+    public Double getMaxVolume() {
+        return maxVolume;
+    }
+
+    public void setMaxVolume(Double maxVolume) {
+        this.maxVolume = maxVolume;
+    }
+
+    public TruckState getState() {
+        return state;
     }
 
     public void setState(TruckState state) {

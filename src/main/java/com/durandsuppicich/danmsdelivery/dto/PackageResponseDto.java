@@ -31,19 +31,40 @@ public class PackageResponseDto {
         this.customerCuit = customerCuit;
     }
 
+    public String getCustomerCuit() {
+        return customerCuit;
+    }
+
     public void setWeight(Double weight) {
         this.weight = weight;
+    }
+
+    public Double getWeight() {
+        return weight;
     }
 
     public void setVolume(Double volume) {
         this.volume = volume;
     }
 
+    public Double getVolume() {
+        return volume;
+    }
+
     public void setArrivalDate(Instant arrivalDate) {
-        this.arrivalDate = arrivalDate.truncatedTo(ChronoUnit.DAYS);
+        if (arrivalDate != null) this.arrivalDate = arrivalDate.truncatedTo(ChronoUnit.DAYS);
+    }
+
+    public Instant getArrivalDate() {
+        if (this.arrivalDate != null) return this.arrivalDate.truncatedTo(ChronoUnit.DAYS);
+        else return null;
     }
 
     public void setState(PackageState state) {
         this.state = state;
+    }
+
+    public PackageState getState() {
+        return state;
     }
 }

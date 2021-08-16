@@ -41,7 +41,8 @@ public class PackageController {
     public ResponseEntity<PackageResponseDto> post(@RequestBody @Valid PackageRequestDto packageDto) {
 
         Package p = packageMapper.map(packageDto);
-        Package result = packageService.post(p);
+        Package result = packageService.post(p, packageDto.getOrdersIds());
+
         PackageResponseDto body = packageMapper.mapToDto(result);
 
         URI location = ServletUriComponentsBuilder

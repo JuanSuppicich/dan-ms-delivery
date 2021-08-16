@@ -34,11 +34,13 @@ public class Truck {
     @Column(name = "delete_date")
     private Instant deleteDate;
 
+    @Column(name = "truck_state")
     @Enumerated(value = EnumType.STRING)
-    private TruckState truckState;
+    private TruckState state;
 
     public Truck() {
-        postDate = Instant.now().truncatedTo(ChronoUnit.SECONDS);
+        this.postDate = Instant.now().truncatedTo(ChronoUnit.SECONDS);
+        this.state = TruckState.DISPONIBLE;
     }
 
     public Integer getId() {
@@ -97,11 +99,12 @@ public class Truck {
         this.deleteDate = Instant.now().truncatedTo(ChronoUnit.SECONDS);
     }
 
-    public TruckState getTruckState() {
-        return truckState;
+    public TruckState getState() {
+        return state;
     }
 
-    public void setTruckState(TruckState truckState) {
-        this.truckState = truckState;
+    public void setState(TruckState state) {
+        this.state = state;
     }
+
 }

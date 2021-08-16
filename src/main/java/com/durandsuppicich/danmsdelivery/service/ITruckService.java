@@ -12,6 +12,8 @@ public interface ITruckService {
 
     List<Truck> getAvailable();
 
+    void patch(Integer id);
+
     void delete(Integer id);
 
 }

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAmount;
 
 @Entity
 @Table(name = "package", schema = "ms_delivery")
@@ -24,8 +25,9 @@ public class Package {
     @Column(nullable = false)
     private Double volume;
 
+    @Column(name = "package_state")
     @Enumerated(value = EnumType.STRING)
-    private PackageState packageState;
+    private PackageState state;
 
     @Column(name = "post_date", nullable = false)
     private Instant postDate;
@@ -33,7 +35,7 @@ public class Package {
     @Column(name = "delete_date")
     private Instant deleteDate;
 
-    @Column(name = "arrival_date", nullable = false)
+    @Column(name = "arrival_date")
     private Instant arrivalDate;
 
     @ManyToOne
@@ -42,7 +44,8 @@ public class Package {
     private Delivery delivery;
 
     public Package() {
-        postDate = Instant.now().truncatedTo(ChronoUnit.SECONDS);
+        this.postDate = Instant.now().truncatedTo(ChronoUnit.SECONDS);
+        this.state = PackageState.PENDIENTE;
     }
 
     public Integer getId() {
@@ -77,12 +80,12 @@ public class Package {
         this.volume = volume;
     }
 
-    public PackageState getPackageState() {
-        return packageState;
+    public PackageState getState() {
+        return state;
     }
 
-    public void setPackageState(PackageState packageState) {
-        this.packageState = packageState;
+    public void setState(PackageState state) {
+        this.state = state;
     }
 
     public Instant getDeleteDate() {
@@ -94,11 +97,12 @@ public class Package {
     }
 
     public Instant getArrivalDate() {
-        return arrivalDate.truncatedTo(ChronoUnit.DAYS);
+        if (this.arrivalDate != null) return arrivalDate.truncatedTo(ChronoUnit.DAYS);
+        else return null;
     }
 
-    public void setArrivalDate() {
-        this.arrivalDate = Instant.now().truncatedTo(ChronoUnit.DAYS);
+    public void setArrivalDate(Instant arrivalDate) {
+        this.arrivalDate = arrivalDate.truncatedTo(ChronoUnit.DAYS);
     }
 
     public Delivery getDelivery() {

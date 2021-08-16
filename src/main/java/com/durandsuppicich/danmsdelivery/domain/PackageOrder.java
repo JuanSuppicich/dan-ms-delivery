@@ -16,6 +16,14 @@ public class PackageOrder {
     @Column(name = "package_id")
     private Integer packageId;
 
+    public PackageOrder() {
+    }
+
+    public PackageOrder(Integer orderId, Integer packageId) {
+        this.orderId = orderId;
+        this.packageId = packageId;
+    }
+
     public Integer getOrderId() {
         return orderId;
     }

@@ -33,8 +33,8 @@ public class TruckMapper implements ITruckMapper {
         truckDto.setLicense(truck.getLicense());
         truckDto.setTare(truck.getTare());
         truckDto.setMaxWeight(truck.getMaxWeight());
-        truckDto.setVolume(truck.getMaxVolume());
-        truckDto.setState(truck.getTruckState());
+        truckDto.setMaxVolume(truck.getMaxVolume());
+        truckDto.setState(truck.getState());
 
         return truckDto;
     }
