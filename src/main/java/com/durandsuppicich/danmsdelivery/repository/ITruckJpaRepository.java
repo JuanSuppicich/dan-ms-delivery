@@ -23,4 +23,11 @@ public interface ITruckJpaRepository extends JpaRepository<Truck, Integer> {
     List<Truck> findAllAvailable();
 
     Optional<Truck> findByIdAndDeleteDateIsNull(Integer id);
+
+    @Query("SELECT t " +
+            "FROM Truck t " +
+            "WHERE t.id = :id " +
+            "AND t.state = com.durandsuppicich.danmsdelivery.domain.TruckState.DISPONIBLE " +
+            "AND t.deleteDate IS NULL ")
+    Optional<Truck> findByIdAvailable(Integer id);
 }

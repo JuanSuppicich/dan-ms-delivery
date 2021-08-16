@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAmount;
 
 @Entity
 @Table(name = "package", schema = "ms_delivery")
@@ -101,8 +100,8 @@ public class Package {
         else return null;
     }
 
-    public void setArrivalDate(Instant arrivalDate) {
-        this.arrivalDate = arrivalDate.truncatedTo(ChronoUnit.DAYS);
+    public void setArrivalDate() {
+        this.arrivalDate = arrivalDate.truncatedTo(ChronoUnit.DAYS).plus(1L, ChronoUnit.DAYS);
     }
 
     public Delivery getDelivery() {

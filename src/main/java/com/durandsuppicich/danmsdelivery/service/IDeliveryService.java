@@ -1,5 +1,6 @@
 package com.durandsuppicich.danmsdelivery.service;
 
+import com.durandsuppicich.danmsdelivery.client.EmployeeDto;
 import com.durandsuppicich.danmsdelivery.domain.Delivery;
 
 import java.util.List;
@@ -11,5 +12,7 @@ public interface IDeliveryService {
     List<Delivery> getAll();
 
     List<Delivery> getByCustomerCuit(String cuit);
+
+    String getEmployeeName();
 
 }

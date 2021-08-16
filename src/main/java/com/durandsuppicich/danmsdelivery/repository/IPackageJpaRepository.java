@@ -19,4 +19,10 @@ public interface IPackageJpaRepository extends JpaRepository<Package, Integer> {
     List<Package> getAll();
 
     List<Package> findAllByCustomerCuitAndDeleteDateIsNull(String cuit);
+
+    @Query("SELECT p " +
+            "FROM Package p " +
+            "WHERE p.state = com.durandsuppicich.danmsdelivery.domain.PackageState.PENDIENTE " +
+            "ORDER BY p.postDate ASC")
+    List<Package> findAllPending();
 }

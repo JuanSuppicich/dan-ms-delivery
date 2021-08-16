@@ -9,7 +9,7 @@ import com.durandsuppicich.danmsdelivery.domain.PackageOrder;
 import com.durandsuppicich.danmsdelivery.domain.PackageState;
 import com.durandsuppicich.danmsdelivery.exception.packages.PackageIdNotFoundException;
 import com.durandsuppicich.danmsdelivery.repository.IPackageJpaRepository;
-import com.durandsuppicich.danmsdelivery.repository.IPackageOrderRepository;
+import com.durandsuppicich.danmsdelivery.repository.IPackageOrderJpaRepository;
 import com.durandsuppicich.danmsdelivery.service.util.IPackageCalculator;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
@@ -23,7 +23,7 @@ public class PackageService implements IPackageService {
 
     private final IPackageJpaRepository packageRepository;
 
-    private final IPackageOrderRepository packageOrderRepository;
+    private final IPackageOrderJpaRepository packageOrderRepository;
 
     private final IOrderClient orderClient;
 
@@ -34,7 +34,7 @@ public class PackageService implements IPackageService {
     private final IPackageCalculator packageCalculator;
 
     public PackageService(IPackageJpaRepository packageRepository,
-                          IPackageOrderRepository packageOrderRepository,
+                          IPackageOrderJpaRepository packageOrderRepository,
                           IOrderClient orderClient,
                           IProductClient productClient,
                           CircuitBreakerFactory circuitBreakerFactory,

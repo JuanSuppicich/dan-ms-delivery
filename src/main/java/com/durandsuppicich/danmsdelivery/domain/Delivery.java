@@ -37,10 +37,6 @@ public class Delivery {
     @JsonManagedReference
     private List<Package> packages = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "delivery_id", referencedColumnName = "delivery_id")
-    private List<Geolocation> route = new ArrayList<>();
-
     public Delivery() {
         this.departure = Instant.now().truncatedTo(ChronoUnit.MINUTES);
     }
@@ -96,17 +92,5 @@ public class Delivery {
     public void addPackage(Package p) {
         this.packages.add(p);
         p.setDelivery(this);
-    }
-
-    public List<Geolocation> getRoute() {
-        return route;
-    }
-
-    public void setRoute(List<Geolocation> route) {
-        this.route = route;
-    }
-
-    public void addGeolocation(Geolocation geolocation) {
-        this.route.add(geolocation);
     }
 }
