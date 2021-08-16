@@ -100,6 +100,7 @@ public class DeliveryService implements IDeliveryService {
         return deliveryRepository.findByCustomerCuit(cuit);
     }
 
+    @Override
     public String getEmployeeName() {
         return this.employeeDto.getName();
     }
@@ -114,7 +115,7 @@ public class DeliveryService implements IDeliveryService {
         );
     }
 
-    public EmployeeDto defaultEmployee() {
+    private EmployeeDto defaultEmployee() {
         return null;
     }
 
