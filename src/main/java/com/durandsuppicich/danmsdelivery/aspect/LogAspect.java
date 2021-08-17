@@ -23,7 +23,10 @@ public class LogAspect {
     @Pointcut("execution(* com.durandsuppicich.danmsdelivery.repository.*.*(..))")
     private void repositoryMethods() {}
 
-    @Before("servicesMethods() || repositoryMethods()" )
+    @Pointcut("execution(* com.durandsuppicich.danmsdelivery.exception.*.*(..))")
+    private void exceptions() {}
+
+    @Before("servicesMethods() || repositoryMethods() || exceptions()" )
     public void doBefore(JoinPoint joinPoint) {
         logger.debug(joinPoint.getTarget().getClass() +
                 ". METODO A EJECUTAR: " + joinPoint.getSignature().getName() +

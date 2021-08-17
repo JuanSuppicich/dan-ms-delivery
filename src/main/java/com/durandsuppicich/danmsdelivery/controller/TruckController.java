@@ -21,6 +21,8 @@ import java.util.List;
 @Validated
 @RequestMapping("api/trucks")
 @Api(value = "TruckController")
+@CrossOrigin(origins = "*", methods=
+        {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.PATCH, RequestMethod.DELETE})
 public class TruckController {
 
     private final ITruckService truckService;

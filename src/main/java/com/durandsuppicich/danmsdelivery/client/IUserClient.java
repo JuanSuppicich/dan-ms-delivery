@@ -8,5 +8,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface IUserClient {
 
     @GetMapping(path = "/api/employees/{id}")
-    public EmployeeDto getById(@PathVariable Integer id);
+    EmployeeDto getById(@PathVariable Integer id);
 }

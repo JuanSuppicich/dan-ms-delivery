@@ -24,6 +24,8 @@ import java.util.List;
 @Validated
 @RequestMapping("/api/packages")
 @Api(value = "PackageController")
+@CrossOrigin(origins = "*", methods=
+        {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.PATCH, RequestMethod.DELETE})
 public class PackageController {
 
     private final IPackageService packageService;

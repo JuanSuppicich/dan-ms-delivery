@@ -23,6 +23,8 @@ import java.util.List;
 @Validated
 @RequestMapping(value = "/api/deliveries")
 @Api(value = "DeliveryController")
+@CrossOrigin(origins = "*", methods=
+        {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.PATCH, RequestMethod.DELETE})
 public class DeliveryController {
 
     private final IDeliveryService deliveryService;
