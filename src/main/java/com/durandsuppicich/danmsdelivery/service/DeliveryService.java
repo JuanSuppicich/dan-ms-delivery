@@ -86,7 +86,7 @@ public class DeliveryService implements IDeliveryService {
 
         delivery.setTruck(truck);
 
-         return deliveryRepository.save(delivery);
+        return deliveryRepository.save(delivery);
     }
 
     @Override
