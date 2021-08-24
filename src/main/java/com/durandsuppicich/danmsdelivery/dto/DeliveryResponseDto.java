@@ -25,20 +25,40 @@ public class DeliveryResponseDto {
         this.id = id;
     }
 
+    public Instant getDeparture() {
+        return departure;
+    }
+
     public void setDeparture(Instant departure) {
         this.departure = departure.truncatedTo(ChronoUnit.MINUTES);
+    }
+
+    public Double getWeight() {
+        return weight;
     }
 
     public void setWeight(Double weight) {
         this.weight = weight;
     }
 
+    public Double getVolume() {
+        return volume;
+    }
+
     public void setVolume(Double volume) {
         this.volume = volume;
     }
 
+    public String getTruckDescription() {
+        return truckDescription;
+    }
+
     public void setTruckDescription(String truckDescription) {
         this.truckDescription = truckDescription;
+    }
+
+    public String getEmployeeName() {
+        return employeeName;
     }
 
     public void setEmployeeName(String employeeName) {

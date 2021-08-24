@@ -101,7 +101,7 @@ public class Package {
     }
 
     public void setArrivalDate() {
-        this.arrivalDate = arrivalDate.truncatedTo(ChronoUnit.DAYS).plus(1L, ChronoUnit.DAYS);
+        this.arrivalDate = Instant.now().truncatedTo(ChronoUnit.DAYS).plus(1L, ChronoUnit.DAYS);
     }
 
     public Delivery getDelivery() {

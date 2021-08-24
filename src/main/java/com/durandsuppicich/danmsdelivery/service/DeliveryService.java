@@ -84,8 +84,9 @@ public class DeliveryService implements IDeliveryService {
 
         updateOrdersState(orderIds);
 
-        truckRepository.save(truck);
-        return deliveryRepository.save(delivery);
+        delivery.setTruck(truck);
+
+         return deliveryRepository.save(delivery);
     }
 
     @Override

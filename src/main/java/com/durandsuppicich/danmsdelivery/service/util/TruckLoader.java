@@ -14,14 +14,26 @@ public final class TruckLoader {
 
         double remainingWeight = truck.getMaxWeight();
         double remainingVolume = truck.getMaxVolume();
+        double totalWeight = 0;
+        double totalVolume = 0;
 
         for(Package p : packages) {
 
             remainingWeight -= p.getWeight();
-            remainingVolume -= remainingVolume - p.getVolume();
+            remainingVolume -= p.getVolume();
 
-            if (remainingWeight > 0 && remainingVolume > 0) delivery.addPackage(p);
-            else return;
+            if (remainingWeight > 0 && remainingVolume > 0) {
+                delivery.addPackage(p);
+                totalWeight += p.getWeight();
+                totalVolume += p.getVolume();
+            }
+            else {
+                delivery.setTotalWeight(totalWeight);
+                delivery.setTotalVolume(totalVolume);
+                return;
+            }
         }
+        delivery.setTotalWeight(totalWeight);
+        delivery.setTotalVolume(totalVolume);
     }
 }

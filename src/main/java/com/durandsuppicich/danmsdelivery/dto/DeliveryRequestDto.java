@@ -2,7 +2,6 @@ package com.durandsuppicich.danmsdelivery.dto;
 
 public class DeliveryRequestDto {
 
-
     private Integer truckId;
 
     private Integer employeeId;
