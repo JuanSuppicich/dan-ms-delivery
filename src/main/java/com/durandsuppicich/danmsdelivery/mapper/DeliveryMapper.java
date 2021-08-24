@@ -33,7 +33,7 @@ public class DeliveryMapper implements IDeliveryMapper {
         deliveryDto.setWeight(delivery.getTotalWeight());
         deliveryDto.setVolume(delivery.getTotalVolume());
         deliveryDto.setTruckDescription(delivery.getTruck().getDescription());
-        // TODO set employee name
+        deliveryDto.setEmployeeId(delivery.getEmployeeId());
 
         return deliveryDto;
 }

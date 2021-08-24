@@ -4,7 +4,7 @@ public class EmployeeDto {
 
     private Integer id;
 
-    private String name;
+    private Integer name;
 
     private String email;
 
@@ -16,11 +16,11 @@ public class EmployeeDto {
         this.id = id;
     }
 
-    public String getName() {
+    public Integer getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(Integer name) {
         this.name = name;
     }
 

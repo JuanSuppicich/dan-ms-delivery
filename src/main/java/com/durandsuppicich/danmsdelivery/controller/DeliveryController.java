@@ -45,7 +45,7 @@ public class DeliveryController {
         Delivery result = deliveryService.post(delivery);
         DeliveryResponseDto body = deliveryMapper.mapToDto(result);
 
-        body.setEmployeeName(deliveryService.getEmployeeName());
+        body.setEmployeeId(deliveryService.getEmployeeName());
 
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()

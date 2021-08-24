@@ -15,7 +15,7 @@ public class DeliveryResponseDto {
 
     private String truckDescription;
 
-    private String employeeName;
+    private Integer employeeId;
 
     public Integer getId() {
         return id;
@@ -57,11 +57,11 @@ public class DeliveryResponseDto {
         this.truckDescription = truckDescription;
     }
 
-    public String getEmployeeName() {
-        return employeeName;
+    public Integer getEmployeeId() {
+        return employeeId;
     }
 
-    public void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
+    public void setEmployeeId(Integer employeeId) {
+        this.employeeId = employeeId;
     }
 }
