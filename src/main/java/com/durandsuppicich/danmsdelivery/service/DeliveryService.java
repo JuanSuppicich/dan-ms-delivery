@@ -38,8 +38,6 @@ public class DeliveryService implements IDeliveryService {
 
     private final CircuitBreakerFactory circuitBreakerFactory;
 
-    private EmployeeDto employeeDto;
-
     public DeliveryService(IDeliveryJpaRepository deliveryRepository,
                            IPackageJpaRepository packageRepository,
                            ITruckJpaRepository truckRepository,
@@ -62,8 +60,8 @@ public class DeliveryService implements IDeliveryService {
         Truck truck = truckRepository.findByIdAvailable(delivery.getTruck().getId())
                 .orElseThrow(() -> new TruckIdNotValidException(delivery.getTruck().getId()));
 
-        employeeDto = getEmployee(delivery.getEmployeeId());
-        if (employeeDto == null) throw new EmployeeIdNotValidException(delivery.getEmployeeId());
+//        EmployeeDto employeeDto = getEmployee(delivery.getEmployeeId());
+//        if (employeeDto == null) throw new EmployeeIdNotValidException(delivery.getEmployeeId());
 
         List<Package> packages = packageRepository.findAllPending();
         if (packages.isEmpty()) throw new NoPendingPackagesException();
@@ -97,11 +95,6 @@ public class DeliveryService implements IDeliveryService {
     @Override
     public List<Delivery> getByCustomerCuit(String cuit) {
         return deliveryRepository.findByCustomerCuit(cuit);
-    }
-
-    @Override
-    public Integer getEmployeeName() {
-        return this.employeeDto.getName();
     }
 
     private EmployeeDto getEmployee(Integer id) {

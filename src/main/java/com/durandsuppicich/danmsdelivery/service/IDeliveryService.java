@@ -12,6 +12,4 @@ public interface IDeliveryService {
 
     List<Delivery> getByCustomerCuit(String cuit);
 
-    Integer getEmployeeName();
-
 }
